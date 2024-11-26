@@ -44,7 +44,7 @@ class TestSmartRoom(unittest.TestCase):
         system.manage_light_level()
         mock_lightbulb.assert_called_with(system.LED_PIN, False)
 
-    @patch.object(SmartRoom, "check_servo_angle")
+    @patch.object(SmartRoom, "change_servo_angle")
     @patch.object(Adafruit_BMP280_I2C, "temperature", new_callable=PropertyMock)
     def test_manage_window_open(self, mock_temperatures: Mock, mock_servo: Mock):
         system = SmartRoom()
