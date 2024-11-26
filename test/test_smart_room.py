@@ -14,9 +14,5 @@ class TestSmartRoom(unittest.TestCase):
     def test_check_room_occupancy(self, mock_distance_sensor: Mock):
         system = SmartRoom()
         mock_distance_sensor.return_value = True
-        occupied = system.check_room_occupancy(system.INFRARED_PIN)
+        occupied = system.check_room_occupancy()
         self.assertTrue(occupied)
-
-    def test_check_room_occupancy_raises_error(self):
-        system = SmartRoom()
-        self.assertRaises(SmartRoomError, system.check_room_occupancy, -1)
